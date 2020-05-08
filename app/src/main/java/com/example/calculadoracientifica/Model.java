@@ -3,9 +3,8 @@
 * Diego Babb Jimenez
 * Clase ViewModel para una calculadora cientifica
 * Dicha calculadora realiza las operaciones en el orden dado por el usuario
-* por ende toma en cuenta la prioridad de las operaciones
+ * por ende no toma en cuenta la prioridad de las operaciones
 * */
-
 
 package com.example.calculadoracientifica;
 
@@ -15,7 +14,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 
 enum operador {
     SUMA, RESTA, MUL, DIV, POW, MOD, SQRT, FACT, SIN, COS, TAN, CSC, SEC, CTG;
@@ -37,7 +35,7 @@ public class Model {
     private MutableLiveData<String> pantalla; // Estara enlazado al texto de la pantalla en el view
 
     public Model(@NonNull LifecycleOwner owner, @NonNull Observer<? super String> observer) {
-        this.pantalla = new MutableLiveData<String>();
+        this.pantalla = new MutableLiveData<>();
         this.pantalla.observe(owner, observer);
         this.pantalla.postValue("");
         this.primer_operando = this.segundo_operando = this.resultado = 0;
@@ -58,6 +56,16 @@ public class Model {
         pantalla.setValue("");
     }
 
+    private boolean textoVacio() {
+        if (ultimoOperador == null) {
+            return textoActual().isEmpty();
+        } else {
+            if (!ultimoOperador.esDeDobleOperando()) {
+                return operando_unico.isEmpty();
+            } else
+                return textoActual().isEmpty();
+        }
+    }
     // Elimina el ultimo digito en pantalla, si esta dentro de un parentisis elimina el ultimo digito del parentisis
     public void eliminarUltimo() {
         if(error) return;
@@ -82,7 +90,7 @@ public class Model {
         if(error) return;
 
         if (ultimoOperador != null && !ultimoOperador.esDeDobleOperando()) {
-            String nuev_texto = textoActual().replaceAll("\\d|\\)|\\s|\\.|!", "");
+            String nuev_texto = textoActual().replaceAll("-|\\d|\\)|\\s|\\.|!", "");
             operando_unico += num;
             nuev_texto += operando_unico + ")";
             pantalla.setValue(nuev_texto);
@@ -94,7 +102,7 @@ public class Model {
     // Para manejar numeros con decimales
     public void escribirPunto() {
         if (ultimoOperador != null && !ultimoOperador.esDeDobleOperando()) {
-            String nuev_texto = textoActual().replaceAll("\\d|\\)|\\s|\\.|!", "");
+            String nuev_texto = textoActual().replaceAll("-|\\d|\\)|\\s|\\.|!", "");
             if (operando_unico.length() > 0) {
                 if (!operando_unico.contains(".")) {
                     operando_unico += ".";
@@ -113,6 +121,11 @@ public class Model {
     // Se ejectuara al presionar cualquier boton con las operaciones
     // llegara por parametro dicho operador presionado
     public void ejecutarOperacion(operador op) {
+
+        if (op == operador.RESTA && textoVacio()) {
+            escribirNegativo();
+            return;
+        }
         if(error) return;
 
         try {
@@ -219,7 +232,7 @@ public class Model {
     // Muestra el resultado formateado en pantalla.
     private void mostrarResultado() {
         String resul = String.valueOf(resultado).trim();
-        if (resul.matches("\\d*([.][0])$")) {
+        if (resul.matches("-?\\d*([.][0])$")) {
             String intNumber = resul.substring(0, resul.indexOf('.'));
             pantalla.postValue(intNumber);
         } else {
@@ -275,4 +288,16 @@ public class Model {
         ultimoOperador = penultimoOperador = null;
         operando_unico = "";
     }
+
+    private void escribirNegativo() {
+        if (ultimoOperador != null && !ultimoOperador.esDeDobleOperando()) {
+            String nuev_texto = textoActual().replaceAll("-|\\d|\\)|\\s|\\.|!", "");
+            operando_unico += "-";
+            nuev_texto += operando_unico;
+            pantalla.setValue(nuev_texto + ")");
+        } else {
+            pantalla.setValue("-");
+        }
+    }
+
 }
