@@ -3,48 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#018CA9">
+    android:background="#2E2E2E"
+    android:screenOrientation="portrait" >
 
     <GridLayout
         android:id="@+id/GridLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/grid_background"
         android:columnCount="4"
-        android:orientation="horizontal"
-        android:paddingLeft="10sp"
-        android:paddingRight="10sp"
-        android:paddingBottom="20sp"
         android:rowCount="6"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_columnSpan="4"
-            android:layout_gravity="right"
-            android:layout_marginBottom="20sp"
-            android:text="@string/title"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/pantalla"
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
-            android:layout_marginLeft="5sp"
-            android:layout_marginRight="5sp"
-            android:layout_marginBottom="20sp"
+            android:layout_marginBottom="15sp"
             android:background="@drawable/borde_pantalla"
-            android:paddingLeft="10sp"
-            android:paddingRight="10sp"
-            android:text="0"
-            android:textSize="50sp" />
+            android:paddingLeft="7sp"
+            android:paddingRight="7sp"
+            android:paddingBottom="7sp"
+            android:paddingTop="7sp"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn_c"
-            android:layout_gravity="fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_teclas_especiales"
@@ -54,35 +44,43 @@
 
         <Button
             android:id="@+id/btn_ac"
-            android:layout_gravity="fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_teclas_especiales"
-            android:text="AC"
+            android:text="⌫"
             android:textColor="#FFF"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_pow"
-            android:layout_gravity="fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="^"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
 
         <Button
             android:id="@+id/btn_sqrt"
-            android:layout_gravity="fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="√"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
+
         <Button
             android:id="@+id/btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -92,6 +90,8 @@
 
         <Button
             android:id="@+id/btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -101,6 +101,8 @@
 
         <Button
             android:id="@+id/btn_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -110,15 +112,20 @@
 
         <Button
             android:id="@+id/btn_suma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="+"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
 
         <Button
             android:id="@+id/btn_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -128,6 +135,8 @@
 
         <Button
             android:id="@+id/btn_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -137,6 +146,8 @@
 
         <Button
             android:id="@+id/btn_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -146,15 +157,20 @@
 
         <Button
             android:id="@+id/btn_resta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="-"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
 
         <Button
             android:id="@+id/btn_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -164,6 +180,8 @@
 
         <Button
             android:id="@+id/btn_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -173,6 +191,8 @@
 
         <Button
             android:id="@+id/btn_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -182,25 +202,32 @@
 
         <Button
             android:id="@+id/btn_mul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="*"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
 
         <Button
-            android:id="@+id/btn_div"
+            android:id="@+id/btn_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
-            android:text="/"
+            android:text="0"
             android:textColor="#FFF"
             android:textSize="20sp" />
+
 
         <Button
             android:id="@+id/btn_decimal"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
@@ -209,16 +236,8 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btn_0"
-            android:layout_marginEnd="5sp"
-            android:layout_marginBottom="5sp"
-            android:background="@drawable/borde_numero"
-            android:text="0"
-            android:textColor="#FFF"
-            android:textSize="20sp" />
-
-        <Button
             android:id="@+id/btn_par"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
@@ -228,91 +247,121 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btn_porcent"
+            android:id="@+id/btn_div"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
-            android:text="%"
+            android:text="/"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
+
 
         <Button
             android:id="@+id/btn_sin"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="SIN"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#F9564F"/>
 
         <Button
             android:id="@+id/btn_cos"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="COS"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#F9564F"/>
 
         <Button
             android:id="@+id/btn_tan"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
             android:layout_marginBottom="5sp"
             android:background="@drawable/borde_numero"
             android:text="TAN"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#F9564F"/>
+
+        <Button
+            android:id="@+id/btn_porcent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:layout_marginBottom="5sp"
+            android:background="@drawable/borde_numero"
+            android:text="%"
+            android:textColor="#FFF"
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
 
         <Button
             android:id="@+id/btn_csc"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:layout_marginBottom="5sp"
+            android:layout_marginBottom="10sp"
             android:background="@drawable/borde_numero"
             android:text="CSC"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#F9564F"/>
 
         <Button
             android:id="@+id/btn_sec"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:layout_marginBottom="5sp"
+            android:layout_marginBottom="10sp"
             android:background="@drawable/borde_numero"
             android:text="SEC"
             android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:backgroundTint="#F9564F"/>
 
         <Button
             android:id="@+id/btn_ctg"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:layout_marginBottom="5sp"
+            android:layout_marginBottom="10sp"
             android:background="@drawable/borde_numero"
             android:text="CTG"
             android:textColor="#FFF"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"
+            android:backgroundTint="#F9564F"/>
 
         <Button
             android:id="@+id/btn_fact"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:layout_marginBottom="5sp"
+            android:layout_marginBottom="10sp"
             android:background="@drawable/borde_numero"
             android:text="!"
             android:textColor="#FFF"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"
+            android:backgroundTint="#2271B3"/>
 
         <Button
             android:id="@+id/btn_igual"
             android:layout_columnSpan="4"
             android:layout_gravity="fill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
             android:background="@drawable/borde_numero"
             android:textColor="#FFF"
             android:text="="
