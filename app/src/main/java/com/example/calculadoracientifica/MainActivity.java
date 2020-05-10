@@ -15,6 +15,8 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.calculadoracientifica.eval.operator;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,22 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Objects.requireNonNull(getSupportActionBar()).hide();
         this.pantalla = findViewById(R.id.pantalla);
 
-        Button btn_0 = findViewById(R.id.btn_0);
-        Button btn_1 = findViewById(R.id.btn_1);
-        Button btn_2 = findViewById(R.id.btn_2);
-        Button btn_3 = findViewById(R.id.btn_3);
-        Button btn_4 = findViewById(R.id.btn_4);
-        Button btn_5 = findViewById(R.id.btn_5);
-        Button btn_6 = findViewById(R.id.btn_6);
-        Button btn_7 = findViewById(R.id.btn_7);
-        Button btn_8 = findViewById(R.id.btn_8);
-        Button btn_9 = findViewById(R.id.btn_9);
-        Button btn_suma = findViewById(R.id.btn_suma);
-        Button btn_resta = findViewById(R.id.btn_resta);
-        Button btn_mul = findViewById(R.id.btn_mul);
-        Button btn_div = findViewById(R.id.btn_div);
-        Button btn_c = findViewById(R.id.btn_c);
-        Button btn_ac = findViewById(R.id.btn_ac);
 
         GridLayout padre = findViewById(R.id.GridLayout1);
         for (int i = 0; i < padre.getChildCount(); i++) {
@@ -102,56 +88,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 model.eliminarUltimo();
                 break;
             case R.id.btn_pow:
-                model.ejecutarOperacion(operador.POW);
-                break;
-            case R.id.btn_sqrt:
-                model.ejecutarOperacion(operador.SQRT);
+                model.escribirOperador("^");
                 break;
             case R.id.btn_suma:
-                model.ejecutarOperacion(operador.SUMA);
+                model.escribirOperador("+");
                 break;
             case R.id.btn_resta:
-                model.ejecutarOperacion(operador.RESTA);
+                model.escribirOperador("-");
                 break;
             case R.id.btn_mul:
-                model.ejecutarOperacion(operador.MUL);
+                model.escribirOperador("*");
                 break;
             case R.id.btn_div:
-                model.ejecutarOperacion(operador.DIV);
+                model.escribirOperador("/");
                 break;
-            case R.id.btn_par:
-                Toast.makeText(this, "()", Toast.LENGTH_SHORT).show();
+            case R.id.btn_pi:
+                model.escribirPi();
+                break;
+            case R.id.btn_parenAbierto:
+                model.escribirOperador("(");
+                break;
+            case R.id.btn_parenCerrado:
+                model.escribirOperador(")");
                 break;
             case R.id.btn_decimal:
                 model.escribirPunto();
                 break;
             case R.id.btn_porcent:
-                model.ejecutarOperacion(operador.MOD);
+                model.escribirOperador("%");
                 break;
             case R.id.btn_sin:
-                model.ejecutarOperacion(operador.SIN);
+                model.escribirOperador(operator.SIN);
                 break;
             case R.id.btn_cos:
-                model.ejecutarOperacion(operador.COS);
+                model.escribirOperador(operator.COS);
                 break;
             case R.id.btn_tan:
-                model.ejecutarOperacion(operador.TAN);
+                model.escribirOperador(operator.TAN);
                 break;
             case R.id.btn_csc:
-                model.ejecutarOperacion(operador.CSC);
+                model.escribirOperador(operator.CSC);
                 break;
             case R.id.btn_sec:
-                model.ejecutarOperacion(operador.SEC);
+                model.escribirOperador(operator.SEC);
                 break;
             case R.id.btn_ctg:
-                model.ejecutarOperacion(operador.CTG);
+                model.escribirOperador(operator.CTG);
                 break;
             case R.id.btn_fact:
-                model.ejecutarOperacion(operador.FACT);
+                model.escribirOperador(operator.FACT);
+                break;
+            case R.id.btn_sqrt:
+                model.escribirOperador(operator.SQRT);
                 break;
             case R.id.btn_igual:
                 model.ejecutarIgual();
                 break;
+
         }
     }
 }
